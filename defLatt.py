@@ -1,4 +1,4 @@
-#Classes and functions needed for the simulations on a lattice
+#Classes and functions needed for the deffinition of a lattice
 
 import scipy
 
@@ -38,7 +38,7 @@ class Lattice:
         self.Hop = {}
 
         self.Nag = N
-        self.AgGrid = scipy.array(range(N))
+        self.AgGrid = scipy.array(range(N),int)
 
         #print "[Lattice.SetHop1d] AgGrid: ", self.AgGrid
 
@@ -58,7 +58,7 @@ class Lattice:
 
         self.Nag = N**2
 
-        self.AgGrid = scipy.zeros((N,N))
+        self.AgGrid = scipy.zeros((N,N), int)
         
         count = 0
         for i in range(N):
@@ -66,7 +66,7 @@ class Lattice:
                 self.AgGrid[i,j]= count
                 count = count + 1
         
-        #print "[Lattice.SetHop2d] AgGrid: ", self.AgGrid
+        print "[Lattice.SetHop2d] AgGrid: ", self.AgGrid
         
         for i in range(N):
             for j in range(N):
@@ -81,6 +81,6 @@ class Lattice:
                 self.Hop[preM2] = self.AgGrid[i,(j+1)%N]
                 self.Hop[prem2] = self.AgGrid[i,(j+1)%N]
 
-        #print "[Lattice.SetHop2d] Hop: ", self.Hop
+        print "[Lattice.SetHop2d] Hop: ", self.Hop
     
                 
